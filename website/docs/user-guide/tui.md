@@ -19,10 +19,14 @@ hermes --tui
 # Resume the latest TUI session (falls back to the latest classic session)
 hermes --tui -c
 hermes --tui --continue
+hermes --tui --resume latest
 
 # Resume a specific session by ID or title
 hermes --tui -r 20260409_000000_aa11bb
 hermes --tui --resume "my t0p session"
+
+# Resume the latest session for a specific project directory
+hermes --tui --resume latest --in ./my-project
 
 # Run source directly — skips the prebuild step (for TUI contributors)
 hermes --tui --dev
@@ -134,9 +138,9 @@ Open it with any of these:
 - `/sessions new` to create a fresh live session immediately.
 - Click the `N live sessions` count in the status line.
 
-<img alt="Hermes TUI Session Orchestrator with one live session and a +new row" src="/img/docs/tui-session-orchestrator/session-orchestrator.png" />
+<img alt="Hermes TUI Session Orchestrator with one live session and a +new row" src="/docs/img/docs/tui-session-orchestrator/session-orchestrator.png" />
 
-<video controls muted loop playsInline src="/img/docs/tui-session-orchestrator/session-orchestrator-demo.mp4" title="Hermes TUI Session Orchestrator demo" />
+<video controls muted loop playsInline src="/docs/img/docs/tui-session-orchestrator/session-orchestrator-demo.mp4" title="Hermes TUI Session Orchestrator demo" style={{maxWidth: '100%'}}></video>
 
 Inside the switcher:
 
@@ -194,6 +198,8 @@ Unset the variable or pass `--resume <id>` explicitly to override on a per-launc
 ## Status line
 
 The TUI's status line tracks agent state in real time:
+
+After a session is named, its title appears as an accent-colored badge at the far-right edge of the status line. The title takes the workspace label's place and truncates on narrow terminals.
 
 | Status | Meaning |
 |--------|---------|
